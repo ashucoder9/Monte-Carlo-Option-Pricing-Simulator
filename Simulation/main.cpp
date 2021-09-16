@@ -1,5 +1,6 @@
+#define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #include <bits/stdc++.h>
-
+using namespace std;
 // A simple implementation of the Box-Muller algorithm, used to generate
 // gaussian random numbers - necessary for the Monte Carlo method below
 // Note that C++11 actually provides std::normal_distribution<> in
@@ -54,8 +55,9 @@ double monte_carlo_put_price(const int& num_sims, const double& S, const double&
 int32_t main(int argc, char **argv)
 {
   fast_cin();
-  fstream fin;
-  fin.open("data.csv", ios::in);
+  ifstream fin;
+  fin.open("data.csv");
+  ofstream file;
 
   vector<string> row;
   string line, word;
@@ -78,14 +80,14 @@ int32_t main(int argc, char **argv)
     double call = monte_carlo_call_price(num_sims, S, K, r, v, T);
     double put = monte_carlo_put_price(num_sims, S, K, r, v, T);
 
-    cout << "Number of Paths: " << num_sims << std::endl;
-    cout << "Underlying:      " << S << std::endl;
-    cout << "Strike:          " << K << std::endl;
-    cout << "Risk-Free Rate:  " << r << std::endl;
-    cout << "Volatility:      " << v << std::endl;
-    cout << "Maturity:        " << T << std::endl;
-    cout << "Call Price:      " << call << std::endl;
-    cout << "Put Price:       " << put << std::endl;
+    file.open("option_pricing.csv");
+    file<< "Number of Paths: " <<","<< num_sims<<std::endl;
+    file<< "Strike:          " <<","<< K << std::endl;
+    file<< "Risk-Free Rate:  " <<","<< r << std::endl;
+    file<< "Volatility:      " <<","<< v << std::endl;
+    file<< "Maturity:        " <<","<< T << std::endl;
+    file<< "Call Price:      " <<","<< call << std::endl;
+    file<< "Put Price:       " <<","<< put << std::endl;
   }
 
   return 0;
