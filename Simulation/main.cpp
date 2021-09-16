@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
+#include <bits/stdc++.h>
 
 // A simple implementation of the Box-Muller algorithm, used to generate
 // gaussian random numbers - necessary for the Monte Carlo method below
@@ -10,7 +8,10 @@ double gaussian_box_muller() {
   double x = 0.0;
   double y = 0.0;
   double euclid_sq = 0.0;
-  
+
+  // Continue generating two uniform random variables
+  // until the square of their "euclidean distance"
+  // is less than unity
   do {
     x = 2.0 * rand() / static_cast<double>(RAND_MAX) - 1;
     y = 2.0 * rand() / static_cast<double>(RAND_MAX) - 1;
@@ -50,29 +51,42 @@ double monte_carlo_put_price(const int& num_sims, const double& S, const double&
   return (payoff_sum / static_cast<double>(num_sims)) * exp(-r * T);
 }
 
-int32_t main(int argc, char **argv) {
-  // First we create the parameter list
-  int num_sims = 10000000;   // Number of simulated asset paths
-  double S = 17355.0;  // Underlying price
-  double K = 17350.0;  // Strike price
-  double r = 0.05;   // Risk-free rate (5%)
-  double v = 0.1253;    // Volatility of the underlying (20%)
-  double T = 0.0082;    // One year until expiry
+int32_t main(int argc, char **argv)
+{
+  fast_cin();
+  fstream fin;
+  fin.open("data.csv", ios::in);
 
-  // Then we calculate the call/put values via Monte Carlo
-  double call = monte_carlo_call_price(num_sims, S, K, r, v, T);
-  double put = monte_carlo_put_price(num_sims, S, K, r, v, T);
+  vector<string> row;
+  string line, word;
 
-  // Finally we output the parameters and prices
-  std::cout << "Number of Paths: " << num_sims << std::endl;
-  std::cout << "Underlying:      " << S << std::endl;
-  std::cout << "Strike:          " << K << std::endl;
-  std::cout << "Risk-Free Rate:  " << r << std::endl;
-  std::cout << "Volatility:      " << v << std::endl;
-  std::cout << "Maturity:        " << T << std::endl;
+  while (!fin.eof()) {
+    row.clear();
+    getline(fin, line);
+    stringstream s(line);
 
-  std::cout << "Call Price:      " << call << std::endl;
-  std::cout << "Put Price:       " << put << std::endl;
+    while (getline(s, word, ','))
+      row.push_back(word);
+
+    int num_sims = stoi(row[0]);    // Number of Simulated Asset Paths
+    double S = stod(row[1]);        // Underlying price
+    double K = stod(row[2]);        // Strike price
+    double r = stod(row[3]);        // Risk-free rate
+    double v = stod(row[4]);        // Implied Volatility
+    double T = stod(row[5]);        // Time till Expiry
+
+    double call = monte_carlo_call_price(num_sims, S, K, r, v, T);
+    double put = monte_carlo_put_price(num_sims, S, K, r, v, T);
+
+    cout << "Number of Paths: " << num_sims << std::endl;
+    cout << "Underlying:      " << S << std::endl;
+    cout << "Strike:          " << K << std::endl;
+    cout << "Risk-Free Rate:  " << r << std::endl;
+    cout << "Volatility:      " << v << std::endl;
+    cout << "Maturity:        " << T << std::endl;
+    cout << "Call Price:      " << call << std::endl;
+    cout << "Put Price:       " << put << std::endl;
+  }
 
   return 0;
 }
