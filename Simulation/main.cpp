@@ -21,7 +21,7 @@ int32_t main(int argc, char **argv)
     while (getline(s, word, ','))
       row.push_back(word);
 
-    int cycle = stoi(row[0]);	// Number of Simulated Asset Paths
+    int cycle = stoi(row[0]);	      // Number of Simulated Asset Paths
     double S = stod(row[1]);        // Underlying price
     double K = stod(row[2]);        // Strike price
     double r = stod(row[3]);        // Risk-free rate
