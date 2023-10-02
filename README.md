@@ -25,6 +25,7 @@ The user will input six different values:
 - Implied Volatility: Constant and equal to the implied volatility provided by NSE.
 - Time till Expiry: Represents the market's expectations for future price volatility.
   > Higher implied volatility implies a greater expected price fluctuation -> generally results in higher option prices.
+
   > Conversely, a lower implied volatility suggests lower expected price fluctuation -> generally results in lower option prices.
 
 These values can be inputted through an excel (.csv) file
