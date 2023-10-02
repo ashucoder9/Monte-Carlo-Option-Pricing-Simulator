@@ -30,7 +30,8 @@ The user will input six different values:
 
 These values can be inputted through an excel (.csv) file
 The output will go to option_pricing.csv, and will contain the same values the user inputted, in addition to the calculated call and put prices.
-** NOTE: ** Data is entered left -> right, where each row represents an individual dataset, and each column one of the six input-categories.
+
+**NOTE:** Data is entered left -> right, where each row represents an individual dataset, and each column one of the six input-categories.
 
 
 ### Why Monte Carlo Model?
