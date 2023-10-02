@@ -20,8 +20,8 @@ In monte-carlo method, the main concept is to use randomness or repeated random 
 The user will input six different values:
 - Number of Simulated Asset Paths: The number of different possible outcomes you want to analyze.
 - Underlying price: Intial price of the asset - current market price.
-- Strike price: 
-- Risk-free rate: 
+- Strike price: The predetermined price at which a financial derivative can be exercised or executed
+- Risk-free rate: Refers to the interest rate used to discount future cash flows or asset values back to their present value.
 - Implied Volatility: Constant and equal to the implied volatility provided by NSE.
 - Time till Expiry: Represents the market's expectations for future price volatility.
   > Higher implied volatility implies a greater expected price fluctuation -> generally results in higher option prices.
