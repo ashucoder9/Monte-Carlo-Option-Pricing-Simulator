@@ -26,6 +26,7 @@ The user will input six different values:
 - Time till Expiry: Represents the market's expectations for future price volatility.
   > Higher implied volatility implies a greater expected price fluctuation -> generally results in higher option prices.
   > Conversely, a lower implied volatility suggests lower expected price fluctuation -> generally results in lower option prices.
+
 These values can be inputted through an excel (.csv) file
 The output will go to option_pricing.csv, and will contain the same values the user inputted, in addition to the calculated call and put prices.
 ** NOTE: ** Data is entered left -> right, where each row represents an individual dataset, and each column one of the six input-categories.
