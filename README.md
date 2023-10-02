@@ -34,7 +34,7 @@ The output will go to option_pricing.csv, and will contain the same values the u
 **NOTE:** Data is entered left -> right, where each row represents an individual dataset, and each column one of the six input-categories.
 
 
-### Why Monte Carlo Model?
+## Why Monte Carlo Model?
 _The below stated explanation will come in handy if you have a good grasp of probablity distribution and can understand the know-how of random variables._ 
 
 The Monte Carlo simulation allows us to predict the possible outcomes of an uncertain event. Mathematicians and programs use this method to both analyze past data, and predict the range of future outcomes; in essence, the simulation is most useful when it is too difficult to use other approaches to predict variable outcomes.
