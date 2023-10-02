@@ -1,13 +1,34 @@
 # Monte Carlo Option Pricing Simulator
+## Description:
 A GUI Based executable app which takes input values from the end user and return CALL/PUT option prices. Currently working on scaling the app to take datasets as input and store resultant option pricing in a file.
 
-A Brief Introduction
+## A Brief Introduction:
 An option is a contract giving the buyer the right, but not the obligation, to buy or sell an underlying asset (a stock or index) at a specific price on or before a certain date.
 Purchasing options can give you a hedge against losses, and in that sense, they can be used conservatively. 
 
 In monte-carlo method, the main concept is to use randomness or repeated random sampling to solve problems that might be deterministic in principle, e.g., predicting options prices and hence the name Monte Carlo Options Pricing Simulator.
 
-# Why Monte Carlo Model ?
+
+## How to Run: 
+1. Open your computer's command prompt/terminal
+2. Type 'git clone https://github.com/kkaroleski2021/Monte-Carlo-Option-Pricing-Simulator.git'
+3. Navigate to the folder containing the simulated dataset ( cd /Monte-Carlo-Option-Pricing-Simulator/Simulation/ )
+4. Run the main program by typing in the command 'start main.exe'
+5. The program should now run! Make sure you have the proper libraries installed.
+
+## Dataset Formatting:
+The user will input six different values:
+- Number of Simulated Asset Paths
+- Underlying price
+- Strike price
+- Risk-free rate
+- Implied Volatility
+- Time till Expiry
+These values can be inputted through an excel (.csv) file
+The output will go to option_pricing.csv, and will contain the same values the user inputted, in addition to the calculated call and put prices.
+
+
+### Why Monte Carlo Model?
 _The below stated explanation will come in handy if you have a good grasp of probablity distribution and can understand the know-how of random variables._ 
 
 Monte Carlo methods for evaluating the mathematical expectation of a random variable often involve generating many independent samples of the random variable and then taking the empirical average of the sample as a point estimate of the expectation. The accuracy of this method is proportional to σ/√n where σ2 denotes the variance of each sample, and n denotes the number of samples generated. 
